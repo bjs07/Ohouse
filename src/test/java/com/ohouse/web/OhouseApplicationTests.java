@@ -1,4 +1,4 @@
-package com.example.Ohouse;
+package com.ohouse.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
