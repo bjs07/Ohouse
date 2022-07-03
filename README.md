@@ -10,8 +10,8 @@ Clone coding for Ohouse
 
 # React 빌드하기
 
-  npx create-react-app [name]
+    npx create-react-app [name]
 
 # React 시작하기
 
-  npm start
+    npm start
