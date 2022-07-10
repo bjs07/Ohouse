@@ -14,14 +14,13 @@ public class ItemCategoryCode {
 
 
     @Id
-    @Column(nullable = false, updatable = false, length = 7)
-    String itemCode;
+    @Column(nullable = false, updatable = false)
+    Long itemCode;
 
     @Column(nullable = false, updatable = false, length = 10)
     String category;
 
-
-    public ItemCategoryCode(String itemCode, String category){
+    public ItemCategoryCode(Long itemCode, String category){
         this.itemCode = itemCode;
         this.category = category;
     }
