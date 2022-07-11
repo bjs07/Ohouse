@@ -2,6 +2,7 @@ package com.ohouse.web.domain.items.codes;
 
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class ItemCategoryCodeRepositoryTest {
     ItemCategoryCodeRepository itemCategoryCodeRepository;
 
     @Test
+    @DisplayName("Read CategoryCode(100, '침대')")
     public void ReadItemCategoryCodeEntity() {
         //given
         Long code1 = 100L;
@@ -32,7 +34,7 @@ public class ItemCategoryCodeRepositoryTest {
         ItemCategoryCode code = codeList.get(0);
 
         //then
-        Assertions.assertThat(code.getItemCode()).isEqualTo(code1);
+        Assertions.assertThat(code.getCategoryCode()).isEqualTo(code1);
         Assertions.assertThat(code.getCategory()).isEqualTo(codeCategory1);
     }
 }
