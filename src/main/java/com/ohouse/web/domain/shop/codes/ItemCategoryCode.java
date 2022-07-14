@@ -1,4 +1,4 @@
-package com.ohouse.web.domain.items.codes;
+package com.ohouse.web.domain.shop.codes;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

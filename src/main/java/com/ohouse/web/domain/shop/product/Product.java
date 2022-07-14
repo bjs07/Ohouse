@@ -1,6 +1,6 @@
-package com.ohouse.web.domain.items.product;
+package com.ohouse.web.domain.shop.product;
 
-import com.ohouse.web.domain.items.item.Item;
+import com.ohouse.web.domain.shop.item.Item;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

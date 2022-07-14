@@ -1,6 +1,8 @@
-package com.ohouse.web.domain.items.codes;
+package com.ohouse.web.domain.shop.codes;
 
 
+import com.ohouse.web.domain.shop.codes.ItemCategoryCode;
+import com.ohouse.web.domain.shop.codes.ItemCategoryCodeRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

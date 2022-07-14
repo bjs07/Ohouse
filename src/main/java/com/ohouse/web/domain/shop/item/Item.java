@@ -1,6 +1,6 @@
-package com.ohouse.web.domain.items.item;
+package com.ohouse.web.domain.shop.item;
 
-import com.ohouse.web.domain.items.codes.ItemCategoryCode;
+import com.ohouse.web.domain.shop.codes.ItemCategoryCode;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

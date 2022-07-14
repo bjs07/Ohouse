@@ -1,4 +1,4 @@
-package com.ohouse.web.domain.items.product;
+package com.ohouse.web.domain.shop.product;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
