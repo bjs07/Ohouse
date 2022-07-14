@@ -22,11 +22,23 @@ public class Item {
     @Column(length = 45, nullable = false)
     private String name;
 
+    @Column(length = 50, unique = true)
+    private String modelName;
+
+    @Column(length = 45)
+    private String brandName;
+
+
     @Builder
-    public Item(ItemCategoryCode categoryCode, String name) {
+    public Item(ItemCategoryCode categoryCode, String name, String modelName, String brandName) {
         this.categoryCode = categoryCode;
         this.name = name;
+        this.modelName = modelName;
+        this.brandName = brandName;
     }
+
+
+
 
     public void setCategoryCode(ItemCategoryCode categoryCode) {
         this.categoryCode = categoryCode;
