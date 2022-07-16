@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Example;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
@@ -33,33 +34,38 @@ public class ProductRepositoryTest {
 
     @BeforeEach
     public void updatePreviously() throws Exception{
-        //Find Category
-        Long categoryId = 100L;
-        Optional<ItemCategoryCode> itemCategoryCode = itemCategoryCodeRepository.findById(categoryId);//침대
+        //Find Category 0-22-20-20 : 가구_침대_침대프레임_일반침대
+        ItemCategoryCode categoryCode = ItemCategoryCode.builder()
+                .category1("0")
+                .category2("22")
+                .category3("20")
+                .category4("20")
+                .build();
+        Example<ItemCategoryCode> e = Example.of(categoryCode);
+        Optional<ItemCategoryCode> one = itemCategoryCodeRepository.findOne(e);
 
         //Set Item
         String itemName1 = "이케아침대";
         Item savedItem1 = itemRepository.save(Item.builder()
-                .categoryCode(itemCategoryCode.orElseThrow(()->new Exception("등록된 100번 Category 없음")))
+                .categoryCode(one.orElseThrow(()->new Exception("등록된 100번 Category 없음")))
                 .name(itemName1)
                 .build());
         //Set Item2
         String itemName2 = "한샘침대";
         Item savedItem2 = itemRepository.save(Item.builder()
-                .categoryCode(itemCategoryCode.orElseThrow(()->new Exception("등록된 100번 Category 없음")))
+                .categoryCode(one.orElseThrow(()->new Exception("등록된 100번 Category 없음")))
                 .name(itemName2)
                 .build());
         //Set Item3
         String itemName3 = "시몬스침대";
         Item savedItem3 = itemRepository.save(Item.builder()
-                .categoryCode(itemCategoryCode.orElseThrow(()->new Exception("등록된 100번 Category 없음")))
+                .categoryCode(one.orElseThrow(()->new Exception("등록된 100번 Category 없음")))
                 .name(itemName3)
                 .build());
 
         itemRepository.save(savedItem1);
         itemRepository.save(savedItem2);
         itemRepository.save(savedItem3);
-
     }
 
     @AfterEach

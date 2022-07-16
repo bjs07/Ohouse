@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Example;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
@@ -36,11 +37,18 @@ public class ItemRepositoryTest {
     @DisplayName("물품 등록")
     public void 물품등록() throws Exception{
         //given
-        Long categoryId = 100L;
+        ItemCategoryCode categoryCode = ItemCategoryCode.builder()
+                .category1("0")
+                .category2("22")
+                .category3("20")
+                .category4("20")
+                .build();
+        Example<ItemCategoryCode> e = Example.of(categoryCode);
+        Optional<ItemCategoryCode> one = itemCategoryCodeRepository.findOne(e);
+
         String itemName = "시몬스침대";
-        Optional<ItemCategoryCode> itemCategoryCode = itemCategoryCodeRepository.findById(categoryId);//침대
         Item savedItem = itemRepository.save(Item.builder()
-                .categoryCode(itemCategoryCode.orElseThrow(()->new Exception("등록된 100번 Category 없음")))
+                .categoryCode(one.orElseThrow(()->new Exception("가구_침대_침대프레임_일반침대 항목 없음")))
                 .name(itemName)
                 .build());
 
@@ -50,7 +58,7 @@ public class ItemRepositoryTest {
         //then
         Item item = list.get(0);
 
-        Assertions.assertThat(item.getCategoryCode().getCategoryCode()).isEqualTo(categoryId);
+        Assertions.assertThat(item.getCategoryCode().getCategory4()).isEqualTo("20");
         Assertions.assertThat(item.getName()).isEqualTo(savedItem.getName());
     }
 
@@ -58,11 +66,18 @@ public class ItemRepositoryTest {
     @DisplayName("등록된 물품 제거")
     public void 등록된물품제거() throws Exception{
         //given
-        Long categoryId = 100L;
+        ItemCategoryCode categoryCode = ItemCategoryCode.builder()
+                .category1("0")
+                .category2("22")
+                .category3("20")
+                .category4("20")
+                .build();
+        Example<ItemCategoryCode> e = Example.of(categoryCode);
+        Optional<ItemCategoryCode> one = itemCategoryCodeRepository.findOne(e);
+
         String itemName = "이케아침대";
-        Optional<ItemCategoryCode> itemCategoryCode = itemCategoryCodeRepository.findById(categoryId);//침대
         Item savedItem = itemRepository.save(Item.builder()
-                .categoryCode(itemCategoryCode.orElseThrow(()->new Exception("등록된 100번 Category 없음")))
+                .categoryCode(one.orElseThrow(()->new Exception("가구_침대_침대프레임_일반침대 항목 없음")))
                 .name(itemName)
                 .build());
 
@@ -79,11 +94,18 @@ public class ItemRepositoryTest {
     @DisplayName("등록된 물품 수정")
     public void 등록된물품수정() throws Exception{
         //given
-        Long categoryId = 100L;
+        ItemCategoryCode categoryCode = ItemCategoryCode.builder()
+                .category1("0")
+                .category2("22")
+                .category3("20")
+                .category4("20")
+                .build();
+        Example<ItemCategoryCode> e = Example.of(categoryCode);
+        Optional<ItemCategoryCode> one = itemCategoryCodeRepository.findOne(e);
+
         String itemName = "이케아침대";
-        Optional<ItemCategoryCode> itemCategoryCode = itemCategoryCodeRepository.findById(categoryId);//침대
         Item savedItem = itemRepository.save(Item.builder()
-                .categoryCode(itemCategoryCode.orElseThrow(() -> new Exception("등록된 100번 Category 없음")))
+                .categoryCode(one.orElseThrow(() -> new Exception("가구_침대_침대프레임_일반침대 항목 없음")))
                 .name(itemName)
                 .build());
         //when
