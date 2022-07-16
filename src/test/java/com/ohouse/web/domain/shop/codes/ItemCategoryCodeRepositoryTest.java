@@ -21,22 +21,20 @@ public class ItemCategoryCodeRepositoryTest {
     ItemCategoryCodeRepository itemCategoryCodeRepository;
 
     @Test
-    @DisplayName("Read CategoryCode(100, '침대')")
+    @DisplayName("Read CategoryCode")
     public void ReadItemCategoryCodeEntity() {
         //given
-        Long code1 = 100L;
-        String codeCategory1 = "침대";
-
-
+        String codeCategory1 = "0";
+        String codeCategory2 = "22";
+        String codeCategory3 = "20";
+        String codeCategory4 = "20"; //가구_침대_침대프레임_일반침대
         //when
-        ItemCategoryCode entityObject = new ItemCategoryCode(code1, codeCategory1);
+        List<ItemCategoryCode> byCategory1 = itemCategoryCodeRepository.findByCategory1OrderByCategory1Desc(codeCategory1);
+        List<ItemCategoryCode> list0All = itemCategoryCodeRepository.findByCategory1AndCategory2AndCategory3OrderByCategory1DescCategory2DescCategory3Desc(codeCategory1, codeCategory2, codeCategory3);
 
-        Example<ItemCategoryCode> example = Example.of(entityObject);
-        List<ItemCategoryCode> codeList = itemCategoryCodeRepository.findAll(example);
-        ItemCategoryCode code = codeList.get(0);
 
         //then
-        Assertions.assertThat(code.getCategoryCode()).isEqualTo(code1);
-        Assertions.assertThat(code.getCategory()).isEqualTo(codeCategory1);
+        Assertions.assertThat(byCategory1.get(0).getCategory1()).isEqualTo(codeCategory1);
+        Assertions.assertThat(list0All.get(0).getCategory4()).isEqualTo(codeCategory4);
     }
 }

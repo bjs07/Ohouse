@@ -1,11 +1,10 @@
 package com.ohouse.web.domain.shop.codes;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
@@ -13,15 +12,31 @@ import javax.persistence.Id;
 public class ItemCategoryCode {
 
     @Id
-    @Column(name = "category_code", nullable = false, updatable = false)
-    private Long categoryCode;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long categorySeq;
 
     @Column(nullable = false, updatable = false, length = 10)
-    private String category;
+    private String categoryDetail;
 
-    public ItemCategoryCode(Long categoryCode, String category){
-        this.categoryCode = categoryCode;
-        this.category = category;
+    @Column(updatable = false, length = 4)
+    private String category1;
+
+    @Column( updatable = false, length = 4)
+    private String category2;
+
+    @Column(updatable = false, length = 4)
+    private String category3;
+
+    @Column(updatable = false, length = 4)
+    private String category4;
+
+    @Builder
+    public ItemCategoryCode(String categoryDetail, String category1, String category2, String category3, String category4) {
+        this.categoryDetail = categoryDetail;
+        this.category1 = category1;
+        this.category2 = category2;
+        this.category3 = category3;
+        this.category4 = category4;
     }
 
 }
