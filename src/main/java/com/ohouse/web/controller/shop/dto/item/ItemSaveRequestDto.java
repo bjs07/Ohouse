@@ -1,4 +1,4 @@
-package com.ohouse.web.web.shop.dto.item;
+package com.ohouse.web.controller.shop.dto.item;
 
 import com.ohouse.web.domain.shop.codes.ItemCategoryCode;
 import com.ohouse.web.domain.shop.item.Item;
@@ -20,7 +20,7 @@ public class ItemSaveRequestDto {
         this.brandName = brandName;
     }
 
-    @Builder
+
     public Item toEntity() {
         return Item.builder()
                 .categoryCode(categoryCode)

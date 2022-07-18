@@ -1,7 +1,7 @@
 package com.ohouse.web.service.shop;
 
 import com.ohouse.web.domain.shop.codes.ItemCategoryCodeRepository;
-import com.ohouse.web.web.shop.dto.item.ItemCategoryListResponseDto;
+import com.ohouse.web.controller.shop.dto.item.ItemCategoryListResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
