@@ -1,4 +1,4 @@
-package com.ohouse.web.web.shop.dto;
+package com.ohouse.web.web.shop.dto.item;
 
 
 import com.ohouse.web.domain.shop.codes.ItemCategoryCode;

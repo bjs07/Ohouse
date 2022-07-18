@@ -37,12 +37,12 @@ public class Item {
         this.brandName = brandName;
     }
 
-
-
-
-    public void setCategoryCode(ItemCategoryCode categoryCode) {
-        this.categoryCode = categoryCode;
+    public void update(String name, String modelName, String brandName){
+        this.name = name;
+        this.modelName = modelName;
+        this.brandName = brandName;
     }
+
 
     public void setName(String name) {
         this.name = name;

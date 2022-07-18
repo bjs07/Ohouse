@@ -34,8 +34,8 @@ public class ItemRepositoryTest {
     }
 
     @Test
-    @DisplayName("물품 등록")
-    public void 물품등록() throws Exception{
+    @DisplayName("ItemRepository 저장")
+    public void itemRepositorySave() throws Exception{
         //given
         ItemCategoryCode categoryCode = ItemCategoryCode.builder()
                 .category1("0")
@@ -63,8 +63,8 @@ public class ItemRepositoryTest {
     }
 
     @Test
-    @DisplayName("등록된 물품 제거")
-    public void 등록된물품제거() throws Exception{
+    @DisplayName("ItemRepository 삭제")
+    public void itemRepositoryDelete() throws Exception{
         //given
         ItemCategoryCode categoryCode = ItemCategoryCode.builder()
                 .category1("0")
@@ -91,8 +91,8 @@ public class ItemRepositoryTest {
     }
 
     @Test
-    @DisplayName("등록된 물품 수정")
-    public void 등록된물품수정() throws Exception{
+    @DisplayName("ItemRepository 수정")
+    public void itemRepositoryUpdate() throws Exception{
         //given
         ItemCategoryCode categoryCode = ItemCategoryCode.builder()
                 .category1("0")
