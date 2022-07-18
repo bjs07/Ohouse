@@ -24,18 +24,22 @@ public class Product {
     private Integer price;
     private Integer stock;
     private Integer rateDiscount;
-    private Character freeDeliveryYn;
-    private Character specialOrder;
+
+    @Column(length = 30)
+    private String size;
+    @Column(length = 30)
+    private String color;
 
     @Builder
-    public Product(Item item, String productName, Integer price, Integer stock, Integer rateDiscount, Character freeDeliveryYn, Character specialOrder) {
+    public Product(Item item, String productName, Integer price, Integer stock, Integer rateDiscount, String size, String color
+    ) {
         this.item = item;
         this.productName = productName;
         this.price = price;
         this.stock = stock;
         this.rateDiscount = rateDiscount;
-        this.freeDeliveryYn = freeDeliveryYn;
-        this.specialOrder = specialOrder;
+        this.size = size;
+        this.color = color;
     }
 
     public void setItem(Item item) {
@@ -46,23 +50,4 @@ public class Product {
         this.productName = productName;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public void setRateDiscount(Integer rateDiscount) {
-        this.rateDiscount = rateDiscount;
-    }
-
-    public void setFreeDeliveryYn(Character freeDeliveryYn) {
-        this.freeDeliveryYn = freeDeliveryYn;
-    }
-
-    public void setSpecialOrder(Character specialOrder) {
-        this.specialOrder = specialOrder;
-    }
 }

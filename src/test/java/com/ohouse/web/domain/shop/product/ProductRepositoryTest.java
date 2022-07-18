@@ -97,8 +97,8 @@ public class ProductRepositoryTest {
                 .price(440000)
                 .stock(100)
                 .rateDiscount(44)
-                .freeDeliveryYn('Y')
-                .specialOrder('N')
+                .size("SS")
+                .color("white")
                 .build();
         Product product2 = Product.builder()
                 .item(itemList2.get(0))
@@ -106,8 +106,8 @@ public class ProductRepositoryTest {
                 .price(600000)
                 .stock(50)
                 .rateDiscount(60)
-                .freeDeliveryYn('Y')
-                .specialOrder('N')
+                .size("S")
+                .color("red")
                 .build();
         Product product3 = Product.builder()
                 .item(itemList3.get(0))
@@ -115,8 +115,8 @@ public class ProductRepositoryTest {
                 .price(300000)
                 .stock(100)
                 .rateDiscount(20)
-                .freeDeliveryYn('Y')
-                .specialOrder('N')
+                .size("M")
+                .color("blue")
                 .build();
         //when
         productRepository.save(product1);
@@ -152,8 +152,8 @@ public class ProductRepositoryTest {
                 .price(440000)
                 .stock(100)
                 .rateDiscount(44)
-                .freeDeliveryYn('Y')
-                .specialOrder('N')
+                .size("SS")
+                .color("white")
                 .build();
         Product saved = productRepository.save(product1);
 
@@ -182,8 +182,8 @@ public class ProductRepositoryTest {
                 .price(440000)
                 .stock(100)
                 .rateDiscount(44)
-                .freeDeliveryYn('Y')
-                .specialOrder('N')
+                .size("SS")
+                .color("white")
                 .build();
         Product saved = productRepository.save(product1);
 
