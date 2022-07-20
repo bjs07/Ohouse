@@ -31,8 +31,7 @@ public class Product {
     private String color;
 
     @Builder
-    public Product(Item item, String productName, Integer price, Integer stock, Integer rateDiscount, String size, String color
-    ) {
+    public Product(Item item, String productName, Integer price, Integer stock, Integer rateDiscount, String size, String color) {
         this.item = item;
         this.productName = productName;
         this.price = price;
@@ -42,12 +41,15 @@ public class Product {
         this.color = color;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
-    }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void update(Item item, String productName, Integer stock, Integer price, Integer rateDiscount, String size,  String color){
+        if(item != null) this.item = item;
+        if(productName != null) this.productName = productName;
+        if(price != null) this.price = price;
+        if(stock != null) this.stock = stock;
+        if(rateDiscount != null) this.rateDiscount = rateDiscount;
+        if(size != null) this.size = size;
+        if(color != null) this.color = color;
     }
 
 }
