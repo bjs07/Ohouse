@@ -20,7 +20,7 @@ public class ProductService {
 
 
     @Transactional
-    public Long save(ProductSaveRequestDto requestDto){
+    public Long save(ProductSaveRequestDto requestDto) {
         return productRepository.save(requestDto.toEntity()).getProductSeq();
     }
 
@@ -37,21 +37,22 @@ public class ProductService {
                 requestDto.getPrice(),
                 requestDto.getRateDiscount(),
                 requestDto.getSize(),
-                requestDto.getColor());
+                requestDto.getColor(),
+                requestDto.getOptionalYn());
 
         return seq;
     }
 
 
     @Transactional(readOnly = true)
-    public List<ProductAllListResponseDto> findAllAsc(){
+    public List<ProductAllListResponseDto> findAllAsc() {
         return productRepository.findAll().stream()
                 .map(ProductAllListResponseDto::new)
                 .collect(Collectors.toList());
     }
 
     @Transactional
-    public void delete(Long seq){
+    public void delete(Long seq) {
 
         productRepository.deleteById(seq);
     }

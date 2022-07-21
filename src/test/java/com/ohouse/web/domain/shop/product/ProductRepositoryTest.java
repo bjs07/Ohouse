@@ -189,7 +189,7 @@ public class ProductRepositoryTest {
 
         //when
         String changedName = "빨간침대";
-        saved.update(null, changedName, null, null, null, null, null);
+        saved.update(null, changedName, null, null, null, null, null, null);
         productRepository.save(saved);
 
         //then
