@@ -10,11 +10,11 @@ import lombok.*;
 @ToString
 
 public class UserDto {
-    private String email;         //필수
-    private String password;      //필수
-    private String nickname;      //필수
-    private int phone;            //option
-    private String birthday;      //option
+    private String email;
+    private String password;
+    private String nickname;
+    private int phone;
+    private String birthday;
 
     public User toEntity(){
         User user = User.builder()
