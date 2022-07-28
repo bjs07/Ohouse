@@ -10,4 +10,8 @@ import lombok.*;
 
 
 public class CommentDto {
+    private String title;
+    private String content;
+
+
 }
